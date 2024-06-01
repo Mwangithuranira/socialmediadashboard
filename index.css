@@ -1,0 +1,263 @@
+/* Base styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: hsl(230, 17%, 14%);
+    color: hsl(0, 0%, 100%);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+body.dark-mode {
+    background-color: hsl(0, 0%, 100%);
+    color: hsl(230, 17%, 14%);
+}
+
+/* Other dark mode styles */
+body.dark-mode .dashboard-container {
+    color: hsl(230, 17%, 14%);
+}
+
+body.dark-mode .total-followers,
+body.dark-mode .overview-title {
+    color: hsl(228, 34%, 66%);
+}
+
+body.dark-mode .social-card,
+body.dark-mode .overview-card {
+    background-color: hsl(228, 28%, 20%);
+}
+
+body.dark-mode .change {
+    color: hsl(163, 72%, 41%);
+}
+
+body.dark-mode .change.negative-change {
+    color: hsl(356, 69%, 56%);
+}
+
+.dashboard-container {
+    max-width: 1440px;
+    width: 100%;
+    padding: 20px;
+    margin: 0 40px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.dashboard-header-top {
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard-title {
+    margin: 0;
+}
+
+.total-followers {
+    margin: 0;
+    color: hsl(228, 34%, 66%);
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+}
+
+.toggle-container span {
+    margin-right: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: hsl(230, 22%, 74%);
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+/* Dashboard and overview styles */
+.main-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.social-card i {
+    color: hsl(228, 96%, 53%);
+}
+
+.social-card {
+    background-color: hsl(228, 28%, 20%);
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    flex: 1 1 22%;
+    box-sizing: border-box;
+}
+
+/* Align images with text */
+.social-card p,
+.overview-card p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-card p img {
+    width: 20px;
+    height: 20px;
+}
+
+.social-card .change img {
+    width: 10px;
+    height: 10px;
+}
+
+.social-card .followers-count {
+    margin: 0;
+    font-size: 3rem;
+}
+
+.change {
+    color: hsl(163, 72%, 41%);
+}
+
+.change.negative-change {
+    color: hsl(356, 69%, 56%);
+}
+
+.main-dashboard .facebook-card {
+    border-top: 4px solid hsl(208, 92%, 53%);
+}
+
+.main-dashboard .twitter-card {
+    border-top: 4px solid hsl(203, 89%, 53%);
+}
+
+.main-dashboard .instagram-card {
+    border-top: 4px solid hsl(37, 97%, 70%);
+}
+
+.main-dashboard .youtube-card {
+    border-top: 4px solid hsl(348, 97%, 39%);
+}
+
+.overview-section {
+    margin-top: 40px;
+}
+
+.overview-title {
+    color: hsl(228, 34%, 66%);
+    text-align: start;
+}
+
+.overview-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.overview-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: hsl(228, 28%, 20%);
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+    flex: 1 1 22%;
+    box-sizing: border-box;
+}
+
+.overview-card p {
+    margin: 10px 0;
+}
+
+.overview-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .social-card,
+    .overview-card {
+        flex: 1 1 46%;
+    }
+}
+
+@media (max-width: 500px) {
+    .social-card,
+    .overview-card {
+        flex: 1 1 100%;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .dashboard-title {
+        font-size: 22px;
+    }
+
+    .dashboard-header-top {
+        border-bottom: 1px solid hsl(228, 28%, 20%);
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+}
